@@ -4,35 +4,36 @@
  */
 package com.mycompany.examen_final.views;
 
-import com.una.examenresolucion.controller.PermitController;
-import com.una.examenresolucion.controller.PermitInterface;
+import com.mycompany.examen_final.controller.ConsultasController;
+
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import com.mycompany.examen_final.controller.ConsultasInterface;
 
 /**
  *
  * @author Eddier Lopez
  */
-public class FrmPermits extends javax.swing.JFrame {
+public class FrmConsultas extends javax.swing.JFrame {
 
     /**
      * Creates new form FrmPermits
      */
-    PermitInterface service;
-    String[] headers={"Permiso","Area Const.","Descripción","Distrito","Fecha"};
+    ConsultasInterface service;
+    String[] headers={"Usuario","Rol","Nombre","Compañia","correo","localizacion"};
     String data[][]=null;
-    public FrmPermits() {
+    public FrmConsultas() {
         initComponents();
-        this.rbDescription.setSelected(true);
-        service=new PermitController();
+        this.rbCompañia.setSelected(true);
+        service=new ConsultasController();
         this.fillCombo();
-        data=new String[0][5];
+        data=new String[0][6];
         this.tbData.setModel(new DefaultTableModel(data,headers));
         
     }
     private void fillCombo(){
-        this.cmbDistrict.setModel(new DefaultComboBoxModel(service.getDistricts()));
+        this.cmbRol.setModel(new DefaultComboBoxModel(service.getRol()));
     }
 
     /**
@@ -46,10 +47,10 @@ public class FrmPermits extends javax.swing.JFrame {
 
         buttonGroup1 = new javax.swing.ButtonGroup();
         jLabel1 = new javax.swing.JLabel();
-        rbDescription = new javax.swing.JRadioButton();
-        rbDistrict = new javax.swing.JRadioButton();
-        txtDescription = new javax.swing.JTextField();
-        cmbDistrict = new javax.swing.JComboBox<>();
+        rbCompañia = new javax.swing.JRadioButton();
+        rbRol = new javax.swing.JRadioButton();
+        txtcompania = new javax.swing.JTextField();
+        cmbRol = new javax.swing.JComboBox<>();
         jScrollPane1 = new javax.swing.JScrollPane();
         tbData = new javax.swing.JTable();
         btnSearch = new javax.swing.JButton();
@@ -57,25 +58,25 @@ public class FrmPermits extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        jLabel1.setText("Busqueda de Permiso de Contrucción");
+        jLabel1.setText("Consultas de Usuarios");
 
-        buttonGroup1.add(rbDescription);
-        rbDescription.setText("Por descripción");
-        rbDescription.addChangeListener(new javax.swing.event.ChangeListener() {
+        buttonGroup1.add(rbCompañia);
+        rbCompañia.setText("Por compañia");
+        rbCompañia.addChangeListener(new javax.swing.event.ChangeListener() {
             public void stateChanged(javax.swing.event.ChangeEvent evt) {
-                rbDescriptionStateChanged(evt);
+                rbCompañiaStateChanged(evt);
             }
         });
 
-        buttonGroup1.add(rbDistrict);
-        rbDistrict.setText("Por distrito");
-        rbDistrict.addChangeListener(new javax.swing.event.ChangeListener() {
+        buttonGroup1.add(rbRol);
+        rbRol.setText("Por Rol");
+        rbRol.addChangeListener(new javax.swing.event.ChangeListener() {
             public void stateChanged(javax.swing.event.ChangeEvent evt) {
-                rbDistrictStateChanged(evt);
+                rbRolStateChanged(evt);
             }
         });
 
-        cmbDistrict.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cmbRol.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         tbData.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -104,30 +105,29 @@ public class FrmPermits extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(60, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                            .addComponent(jLabel1)
-                            .addGap(135, 135, 135))
-                        .addGroup(layout.createSequentialGroup()
-                            .addComponent(rbDescription)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(rbDistrict)
-                            .addGap(172, 172, 172)))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 584, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(52, 52, 52))))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 584, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(52, 52, 52))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(116, 116, 116)
-                        .addComponent(txtDescription, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtcompania, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(116, 116, 116)
-                        .addComponent(cmbDistrict, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(cmbRol, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(300, 300, 300)
                         .addComponent(btnSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jLabel1)
+                .addGap(221, 221, 221))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(147, 147, 147)
+                .addComponent(rbCompañia)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(rbRol)
+                .addGap(172, 172, 172))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -135,13 +135,13 @@ public class FrmPermits extends javax.swing.JFrame {
                 .addGap(21, 21, 21)
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(rbDescription)
-                    .addComponent(rbDistrict))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(rbRol)
+                    .addComponent(rbCompañia))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtDescription, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(cmbDistrict, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtcompania, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cmbRol, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btnSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -152,29 +152,29 @@ public class FrmPermits extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void rbDescriptionStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_rbDescriptionStateChanged
+    private void rbCompañiaStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_rbCompañiaStateChanged
         // TODO add your handling code here:
-        if(this.rbDescription.isSelected()){
-            this.txtDescription.setEnabled(true);
-            this.cmbDistrict.setEnabled(false);
+        if(this.rbCompañia.isSelected()){
+            this.txtcompania.setEnabled(true);
+            this.cmbRol.setEnabled(false);
             
         }
-    }//GEN-LAST:event_rbDescriptionStateChanged
+    }//GEN-LAST:event_rbCompañiaStateChanged
 
-    private void rbDistrictStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_rbDistrictStateChanged
+    private void rbRolStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_rbRolStateChanged
         // TODO add your handling code here:
-        if(this.rbDistrict.isSelected()){
-            this.cmbDistrict.setEnabled(true);
-            this.txtDescription.setEnabled(false);
+        if(this.rbRol.isSelected()){
+            this.cmbRol.setEnabled(true);
+            this.txtcompania.setEnabled(false);
         }
-    }//GEN-LAST:event_rbDistrictStateChanged
+    }//GEN-LAST:event_rbRolStateChanged
 
     private void btnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchActionPerformed
         
-        if(this.rbDescription.isSelected()){
-            data=service.query("description",txtDescription.getText().toUpperCase());
-        }else if(this.rbDistrict.isSelected()){
-            data=service.query("district",cmbDistrict.getSelectedItem().toString());
+        if(this.rbCompañia.isSelected()){
+            data=service.Compañia("Compañia",txtcompania.getText().toUpperCase());
+        }else if(this.rbRol.isSelected()){
+            data=service.Compañia("Rol",cmbRol.getSelectedItem().toString());
         }else{
             JOptionPane.showMessageDialog(this,"Debe seleccionar una de las opciones de busqueda");
         }
@@ -187,12 +187,12 @@ public class FrmPermits extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnSearch;
     private javax.swing.ButtonGroup buttonGroup1;
-    private javax.swing.JComboBox<String> cmbDistrict;
+    private javax.swing.JComboBox<String> cmbRol;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JRadioButton rbDescription;
-    private javax.swing.JRadioButton rbDistrict;
+    private javax.swing.JRadioButton rbCompañia;
+    private javax.swing.JRadioButton rbRol;
     private javax.swing.JTable tbData;
-    private javax.swing.JTextField txtDescription;
+    private javax.swing.JTextField txtcompania;
     // End of variables declaration//GEN-END:variables
 }

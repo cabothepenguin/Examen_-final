@@ -4,6 +4,8 @@
 
 package com.mycompany.examen_final;
 
+import com.mycompany.examen_final.views.FrmConsultas;
+
 /**
  *
  * @author Yazir Zuñiga
@@ -11,6 +13,7 @@ package com.mycompany.examen_final;
 public class Examen_final {
 
     public static void main(String[] args) {
-        System.out.println("Hello World!");
+        FrmConsultas fc= new FrmConsultas();
+        fc.setVisible(true);
     }
 }

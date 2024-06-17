@@ -29,32 +29,16 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="1" attributes="0">
               <EmptySpace pref="60" max="32767" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="103" alignment="1" groupAlignment="0" max="-2" attributes="0">
-                      <Group type="102" alignment="1" attributes="0">
-                          <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="135" max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="102" alignment="0" attributes="0">
-                          <Component id="rbDescription" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace max="32767" attributes="0"/>
-                          <Component id="rbDistrict" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="172" max="-2" attributes="0"/>
-                      </Group>
-                  </Group>
-                  <Group type="102" alignment="1" attributes="0">
-                      <Component id="jScrollPane1" min="-2" pref="584" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="52" max="-2" attributes="0"/>
-                  </Group>
-              </Group>
+              <Component id="jScrollPane1" min="-2" pref="584" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="52" max="-2" attributes="0"/>
           </Group>
           <Group type="102" attributes="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
                       <EmptySpace min="-2" pref="116" max="-2" attributes="0"/>
-                      <Component id="txtDescription" min="-2" pref="175" max="-2" attributes="0"/>
+                      <Component id="txtcompania" min="-2" pref="175" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="116" max="-2" attributes="0"/>
-                      <Component id="cmbDistrict" min="-2" pref="172" max="-2" attributes="0"/>
+                      <Component id="cmbRol" min="-2" pref="172" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="300" max="-2" attributes="0"/>
@@ -62,6 +46,18 @@
                   </Group>
               </Group>
               <EmptySpace max="32767" attributes="0"/>
+          </Group>
+          <Group type="102" alignment="1" attributes="0">
+              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+              <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="221" max="-2" attributes="0"/>
+          </Group>
+          <Group type="102" alignment="1" attributes="0">
+              <EmptySpace min="-2" pref="147" max="-2" attributes="0"/>
+              <Component id="rbCompañia" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
+              <Component id="rbRol" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="172" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -71,14 +67,14 @@
               <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
               <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="rbDescription" min="-2" max="-2" attributes="0"/>
-                  <Component id="rbDistrict" alignment="0" min="-2" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="rbRol" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="rbCompañia" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="txtDescription" min="-2" max="-2" attributes="0"/>
-                  <Component id="cmbDistrict" min="-2" max="-2" attributes="0"/>
+                  <Component id="txtcompania" min="-2" max="-2" attributes="0"/>
+                  <Component id="cmbRol" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="32767" attributes="0"/>
               <Component id="btnSearch" min="-2" pref="33" max="-2" attributes="0"/>
@@ -95,34 +91,34 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Segoe UI" size="24" style="1"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Busqueda de Permiso de Contrucci&#xf3;n"/>
+        <Property name="text" type="java.lang.String" value="Consultas de Usuarios"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JRadioButton" name="rbDescription">
+    <Component class="javax.swing.JRadioButton" name="rbCompa&#xf1;ia">
       <Properties>
         <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
           <ComponentRef name="buttonGroup1"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Por descripci&#xf3;n"/>
+        <Property name="text" type="java.lang.String" value="Por compa&#xf1;ia"/>
       </Properties>
       <Events>
-        <EventHandler event="stateChanged" listener="javax.swing.event.ChangeListener" parameters="javax.swing.event.ChangeEvent" handler="rbDescriptionStateChanged"/>
+        <EventHandler event="stateChanged" listener="javax.swing.event.ChangeListener" parameters="javax.swing.event.ChangeEvent" handler="rbCompa&#xf1;iaStateChanged"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JRadioButton" name="rbDistrict">
+    <Component class="javax.swing.JRadioButton" name="rbRol">
       <Properties>
         <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
           <ComponentRef name="buttonGroup1"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Por distrito"/>
+        <Property name="text" type="java.lang.String" value="Por Rol"/>
       </Properties>
       <Events>
-        <EventHandler event="stateChanged" listener="javax.swing.event.ChangeListener" parameters="javax.swing.event.ChangeEvent" handler="rbDistrictStateChanged"/>
+        <EventHandler event="stateChanged" listener="javax.swing.event.ChangeListener" parameters="javax.swing.event.ChangeEvent" handler="rbRolStateChanged"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JTextField" name="txtDescription">
+    <Component class="javax.swing.JTextField" name="txtcompania">
     </Component>
-    <Component class="javax.swing.JComboBox" name="cmbDistrict">
+    <Component class="javax.swing.JComboBox" name="cmbRol">
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
           <StringArray count="4">

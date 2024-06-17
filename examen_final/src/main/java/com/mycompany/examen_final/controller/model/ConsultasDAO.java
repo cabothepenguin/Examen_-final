@@ -13,14 +13,14 @@ import org.w3c.dom.NodeList;
  *
  * @author Eddier Lopez
  */
-public class PermitDAO extends XmlAdapter{
+public class ConsultasDAO extends XmlAdapter{
     
-    public PermitDAO(String entityName){
+    public ConsultasDAO(String entityName){
         super(entityName);
     }
-    public ArrayList<Permit> getByDescription(String param) throws Exception{
-        ArrayList<Permit> data=new ArrayList<>();
-        NodeList list=this.getNodeList("permiso");
+    public ArrayList<Consultas> getByCompañia(String param) throws Exception{
+        ArrayList<Consultas> data=new ArrayList<>();
+        NodeList list=this.getNodeList("Acceso");
         for(int i=0;i<list.getLength();i++){
             if(list.item(i).getChildNodes().item(2).getTextContent().startsWith(param)){
                 data.add(this.elementToPermit(list.item(i)));
@@ -28,9 +28,9 @@ public class PermitDAO extends XmlAdapter{
         }
         return data;
     }
-    public ArrayList<Permit> getByDistrict(String district) throws Exception{
-        ArrayList<Permit> data=new ArrayList<>();
-        NodeList list=this.getNodeList("permiso");
+    public ArrayList<Consultas> getByRol(String district) throws Exception{
+        ArrayList<Consultas> data=new ArrayList<>();
+        NodeList list=this.getNodeList("Acceso");
         for(int i=0;i<list.getLength();i++){
             if(list.item(i).getChildNodes().item(3).getTextContent().equals(district)){
                 data.add(this.elementToPermit(list.item(i)));
@@ -38,8 +38,8 @@ public class PermitDAO extends XmlAdapter{
         }
         return data;
     }
-    public List listOfDistricts() throws Exception{        
-        NodeList list=this.getNodeList("distrito");
+    public List listOfRol() throws Exception{        
+        NodeList list=this.getNodeList("Rol");
         List data=new ArrayList();
         for(int i=0;i<list.getLength();i++){
             if(!data.contains(list.item(i).getTextContent())){
@@ -51,8 +51,8 @@ public class PermitDAO extends XmlAdapter{
     private NodeList getNodeList(String tag) throws Exception{
         return this.getNormalized().getDocumentElement().getElementsByTagName(tag);
     }
-    private Permit elementToPermit(Node node){
-        return new Permit(
+    private Consultas elementToPermit(Node node){
+        return new Consultas(
                 node.getChildNodes().item(0).getTextContent(),
                 Double.valueOf(node.getChildNodes().item(1).getTextContent()),
                 node.getChildNodes().item(2).getTextContent(),

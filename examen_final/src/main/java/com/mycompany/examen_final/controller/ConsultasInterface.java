@@ -8,8 +8,8 @@ package com.mycompany.examen_final.controller;
  *
  * @author Eddier Lopez
  */
-public interface PermitInterface {
-    public String[][] query(String type,String arg);
-    public String[] getDistricts();
+public interface ConsultasInterface {
+    public String[][] Compañia(String type,String arg);
+    public String[] getRol();
     
 }
